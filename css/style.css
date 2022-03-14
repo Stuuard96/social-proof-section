@@ -60,6 +60,7 @@ body{
 .section__stars{
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-bottom: 30px; 
 }
 
@@ -67,7 +68,7 @@ body{
     background-color: var(--light-grayish-magenta);
     border-radius: 0.33em;
     margin: 8px 0;
-    max-width: 340px;
+    width: 340px;
     height: 88px;
     padding: 15px;
     font-weight: 700;
@@ -83,11 +84,6 @@ body{
     text-align: center;
 }
 
-.stars__texts{
-    min-width: 240px;
-    text-align: center;
-}
-
 /*-----------------------Cards------------------------------*/
 .section__cards{
     display: flex;
@@ -98,7 +94,7 @@ body{
 .cards__box{
     background-color: var(--very-dark-magenta);
     color: var(--white);
-    font-size: 0.8em;
+    font-size: 0.9em;
     border-radius: 0.67em;
     height: 250px;
     max-width: 340px;
@@ -129,9 +125,112 @@ body{
     grid-row: 1/2;
 }
 .cards__box p{
-    font-size: 1.1em;
     font-weight: 500;
-    line-height: 20px;
+    line-height: 23px;
     grid-column: 1/3;
     margin-top: 20px;
+}
+
+/*--------------------------(>375px)------------------------*/
+@media only screen and (min-width: 376px){
+    .stars__box--1{
+        align-self: flex-start;
+    }
+    .stars__box--3{
+        align-self: flex-end;
+    }
+    .cards__box--1{
+        align-self: flex-start;
+    }
+    .cards__box--3{
+        align-self: flex-end;
+    }
+}
+/*------------------------(>768px)--------------------------*/
+@media only screen and (min-width: 768px){
+    body{
+        background: url(../images/bg-pattern-top-desktop.svg),url(../images/bg-pattern-bottom-desktop.svg);
+        background-position: top left, bottom right ;
+        background-repeat: no-repeat;
+        background-size: 400px;
+    }
+    .stars__box{
+        flex-direction: row;
+        width: 440px;
+        height: 50px;
+        justify-content: center;
+    }
+    .stars__texts{
+        padding-left: 25px;
+    }
+    .section__cards{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .cards__box{
+        margin-top: 0;
+    }
+    .cards__box--1{
+        grid-column: 1/2;
+        justify-self: center;
+        
+    }
+    .cards__box--2{
+        grid-column: 2/3;
+        justify-self: center;
+        
+    }
+    .cards__box--3{
+        margin-top: 30px;
+        grid-column: 1/3;
+        justify-self: center;
+        
+    }
+}
+/*------------------------(>894px)--------------------------*/
+@media only screen and (min-width: 894px){
+    .container{
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        row-gap: 25px;
+    }
+    
+    .head{
+        margin-right: 20px;
+        grid-column: 1/6;
+    }
+    .section__stars{
+        justify-content: center;
+        grid-column: 6/-1;
+    }
+    .section__cards{
+        grid-column: 1/-1;
+    }
+}
+/*------------------------(>1160px)-------------------------*/
+@media only screen and (min-width: 1160px){
+    body{
+        background-size: 500px;
+    }
+    .section__cards{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 320px;
+    }
+    .section__stars{
+        grid-column: 7/-1;
+        justify-content: center;
+    }
+    .head__title{
+        font-size: 2.5em;
+        line-height: 45px;
+        margin: 0;
+        max-width: 400px;
+        text-align: left;
+    }
+    .head__paragraph{
+        margin: 10px 0 0;
+        text-align: left;
+    }
 }
